@@ -16,28 +16,22 @@ struct Node {
 struct node* root= nullptr;
 
 int main() {
-   const int words = 57000;
-   int list[words];
-   int count;
-   int numberOfWords;
-
-   ifstream inputFile;
-   inputFile.open("Dictionary.txt");
-   count = 0;
-
-   if (!inputFile){
-       cout << "Error finding file";
-   }
-
-   while(!inputFile.eof()){
-       inputFile >> list[count];
-   }
-   numberOfWords = count;
-   cout << "The words are:";
-   for(count = 0; count < numberOfWords; count++){
-       cout << " " << list[count];
-   }
-   cout << endl;
+    vector<string> v (57000);
+    ifstream file;
+    file.open("C:/Users/bonba/Desktop/CLION PROJECTS/Assignment_2/Dictionary.txt", ios::in);
+    if (file.is_open())
+    {
+        for (int i = 0; i < 57000; i++)
+        {
+            file >> v[i];
+        }
+        file.close();
+    }
+    else cout << "Could not access file.";
+    for (int i = 0; i < 57000; i++)
+    {
+        cout << v[i] << " ";
+    }
 
 
 
