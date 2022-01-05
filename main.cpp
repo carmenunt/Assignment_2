@@ -1,6 +1,52 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
+
+
+using namespace std;
+struct Node {
+    char element;
+    struct Node* left;
+    struct Node* right;
+
+
+};
+struct node* root= nullptr;
 
 int main() {
+   const int words = 57000;
+   int list[words];
+   int count;
+   int numberOfWords;
+
+   ifstream inputFile;
+   inputFile.open("Dictionary.txt");
+   count = 0;
+
+   if (!inputFile){
+       cout << "Error finding file";
+   }
+
+   while(!inputFile.eof()){
+       inputFile >> list[count];
+   }
+   numberOfWords = count;
+   cout << "The words are:";
+   for(count = 0; count < numberOfWords; count++){
+       cout << " " << list[count];
+   }
+   cout << endl;
+
+
+
+
+
+
+
+
+
     int choice = 0;
     while (choice !=5)
     {

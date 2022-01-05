@@ -4,9 +4,15 @@
 
 struct Node {
     char element;
-    struct Node* leftMostChild;
-    struct Node* rightSibling;
-};
+    struct Node* left;
+    struct Node* right;
 
+};
+class Node{
+    BstNode* GetNewNode(char element);
+
+
+
+};
 
 #endif //UNTITLED6_NODE_HPP
