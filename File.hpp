@@ -3,7 +3,8 @@
 
 
 class File {
-
+public:
+    void readFile(std::string fileName);
 };
 
 
