@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "File.hpp"
+#include "List.hpp"
 
 using namespace std;
 
@@ -11,22 +12,23 @@ void File::readFile(string fileName)
     ifstream MyReadFile;
 
     MyReadFile.open("dictionary.txt",ios::in);
-    vector<string> v (57000);
+    List newList;
     string myText;
     if (MyReadFile.is_open())
     {
-        int i = 0;
         while (getline (MyReadFile, myText)) {
-            MyReadFile >> v[i];
-            i++;
+            string word;
+            MyReadFile >> word;
+            newList.insert(word);
         }
         MyReadFile.close();
     }
     else cout << "Could not access file.";
-
-    for (int i = 0; i < 57000; i++)
+    Cell * element = newList.getHead();
+    while (element != nullptr)
     {
-        cout << v[i] << " ";
+        cout << element->value << " ";
+        element = element->next;
     }
 
 
