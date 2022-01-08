@@ -12,6 +12,11 @@ class Tree {
         struct TreeNode *right;
     }
 public:
+    struct TreeNode {
+        char element;
+        struct TreeNode *left;
+        struct TreeNode *right;
+    }
     Tree();
     Node parent(Node n, Tree T);
     Node leftmostChild(Node n, tree T);

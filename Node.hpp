@@ -2,13 +2,16 @@
 #define UNTITLED6_NODE_HPP
 
 
-struct TreeNode* {
-    char element;
-    struct TreeNode* left;
-    struct TreeNode* right;
+
 
 };
 class Node{
+    struct TreeNode {
+        char element;
+        struct TreeNode* left;
+        struct TreeNode* right;
+public:
+
     TreeNode* GetNewNode(char element);
 
 
