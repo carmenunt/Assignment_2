@@ -3,4 +3,4 @@ project(untitled6)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(untitled6 main.cpp File.cpp List.cpp Cell.cpp)
+add_executable(untitled6 main.cpp File.cpp List.cpp Cell.cpp LetterConverter.cpp)

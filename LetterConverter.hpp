@@ -1,11 +1,13 @@
 #ifndef UNTITLED6_LETTERCONVERTER_HPP
 #define UNTITLED6_LETTERCONVERTER_HPP
+#include <iostream>
+using namespace std;
 
 
 class LetterConverter {
 
 public:
-    char convertAccents(char letter);
+    string convertAccents(string word);
 };
 
 
