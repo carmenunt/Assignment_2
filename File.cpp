@@ -6,8 +6,7 @@
 #include "List.hpp"
 
 using namespace std;
-
-void File::readFile(string fileName)
+List File::readFile(string fileName)
 {
     ifstream MyReadFile;
 
@@ -22,14 +21,10 @@ void File::readFile(string fileName)
             newList.insert(word);
         }
         MyReadFile.close();
+        return newList;
+
     }
     else cout << "Could not access file.";
-    Cell * element = newList.getHead();
-    while (element != nullptr)
-    {
-        cout << element->value << " ";
-        element = element->next;
-    }
 
 
 

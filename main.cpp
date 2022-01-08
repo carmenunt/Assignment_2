@@ -23,7 +23,8 @@ int main() {
 
     File file;
 
-    file.readFile(fileName);
+    List listDic = file.readFile(fileName);
+
 
 
 

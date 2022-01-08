@@ -1,13 +1,13 @@
 #include "Node.hpp"
-struct BstNode{
+struct TreeNode{
     char element;
-    BstNode* left;
-    BstNode* right;
+    TreeNode* left;
+    TreeNode* right;
 };
 
-BstNode* Node::GetNewNode(char element){
-    BstNode* newNode = new BstNode();
-    newNode->data = element;
+TreeNode* Node::GetNewNode(char element){
+    TreeNode* newNode = new TreeNode();
+    newNode->element = element;
     newNode->left = nullptr;
     newNode->right = nullptr;
     return newNode;

@@ -1,10 +1,10 @@
 #ifndef UNTITLED6_FILE_HPP
 #define UNTITLED6_FILE_HPP
-
+#include "List.hpp"
 
 class File {
 public:
-    void readFile(std::string fileName);
+    List readFile(std::string fileName);
 };
 
 

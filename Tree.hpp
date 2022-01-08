@@ -1,9 +1,11 @@
 #ifndef UNTITLED6_TREE_HPP
 #define UNTITLED6_TREE_HPP
+#include "Node.hpp"
+#include "List.hpp"
 
 
 class Tree {
-    Node root;
+    TreeNode* root;
 public:
     Tree();
     Node parent(Node n, Tree T);

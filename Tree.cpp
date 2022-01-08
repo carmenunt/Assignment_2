@@ -1,17 +1,31 @@
 #include "Tree.hpp"
+#include "Node.hpp"
+
 
 Tree::Tree()
 {
+    root = nullptr;
+
 
 }
 
 Node Tree::parent(Node n, Tree T)
 {
 
+
 }
 
-Node Tree::leftmostChild(Node n, tree T)
+Node Tree::leftmostChild(Node* current)
 {
+    if (current == nullptr){
+        cout << "Error the  Tree is empty\n";
+        return -1;
+    }
+
+    while(current->left != nullptr){
+        current = current->left;
+    }
+    return current -> data;
 
 }
 
