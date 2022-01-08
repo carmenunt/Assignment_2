@@ -6,6 +6,11 @@
 
 class Tree {
     TreeNode* root;
+    struct TreeNode {
+        char element;
+        struct TreeNode *left;
+        struct TreeNode *right;
+    }
 public:
     Tree();
     Node parent(Node n, Tree T);

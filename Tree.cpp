@@ -15,7 +15,7 @@ Node Tree::parent(Node n, Tree T)
 
 }
 
-Node Tree::leftmostChild(Node* current)
+Node Tree::leftmostChild(TreeNode* current)
 {
     if (current == nullptr){
         cout << "Error the  Tree is empty\n";
@@ -25,12 +25,20 @@ Node Tree::leftmostChild(Node* current)
     while(current->left != nullptr){
         current = current->left;
     }
-    return current -> data;
+    return current -> element;
 
 }
 
-Node Tree::rightSibling(Node n, tree T)
+Node Tree::rightSibling(TreeNode* current)
 {
+    if(current == nullptr){
+        cout << "Error the tree is empty";
+        return -1;
+    }
+    current = current->right ;
+    return current->element;
+
+
 
 }
 
