@@ -2,17 +2,10 @@
 #include <sstream>
 #include <fstream>
 #include "File.hpp"
+#include "Tree.hpp"
 
 
 using namespace std;
-struct Node {
-    char element;
-    struct Node* left;
-    struct Node* right;
-
-
-};
-struct node* root= nullptr;
 
 int main() {
 
@@ -24,8 +17,29 @@ int main() {
     File file;
 
     List listDic = file.readFile(fileName);
+    Tree newTree;
+    TrieNode *root = newTree.getNode();
 
 
+    Cell* element = listDic.getHead();
+    while (element != nullptr)
+    {
+        newTree.insert(root, element->value);
+        element = element->next;
+    }
+
+    if(newTree.search(root, "adrian"))
+    {
+        cout << "Yes\n";
+    } else{
+        cout << "No\n";
+    }
+    if(newTree.search(root, "desmanear"))
+    {
+        cout << "Yes\n";
+    } else{
+        cout << "No\n";
+    }
 
 
 //    int choice = 0;

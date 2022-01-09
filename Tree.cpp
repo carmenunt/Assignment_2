@@ -1,54 +1,72 @@
 #include "Tree.hpp"
-#include "Node.hpp"
-
+#include "TrieNode.hpp"
 
 Tree::Tree()
+{}
+TrieNode* Tree::getNode(void)
 {
-    root = nullptr;
+    TrieNode *pNode =  new TrieNode;
 
+    pNode->isEndOfWord = false;
 
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+        pNode->children[i] = nullptr;
+
+    return pNode;
 }
 
-Node Tree::parent(Node n, Tree T)
+void Tree::insert(struct TrieNode *root, string key)
 {
+    struct TrieNode *pCrawl = root;
 
+    key = "ñ";
+    for (int i = 0; i < key.length(); i++)
+    {
+        int index;
+        if (to_string(key[i]) == "\u00F1")
+        {
+            index = 27;
+        } else if (to_string(key[i]) == "\u00FC")
+        {
+            index = 28;
+        }else
+        {
+            index = key[i] - 'a';
+        }
+        if (!pCrawl->children[index])
+            pCrawl->children[index] = getNode();
 
-}
-
-Node Tree::leftmostChild(TreeNode* current)
-{
-    if (current == nullptr){
-        cout << "Error the  Tree is empty\n";
-        return -1;
+        pCrawl = pCrawl->children[index];
     }
 
-    while(current->left != nullptr){
-        current = current->left;
-    }
-    return current -> element;
-
+    // mark last node as leaf
+    pCrawl->isEndOfWord = true;
 }
 
-Node Tree::rightSibling(TreeNode* current)
+bool Tree::search(struct TrieNode *root, string key)
 {
-    if(current == nullptr){
-        cout << "Error the tree is empty";
-        return -1;
+    struct TrieNode *pCrawl = root;
+
+    for (int i = 0; i < key.length(); i++)
+    {
+        int index;
+        if (to_string(key[i]) == "\u00F1")
+        {
+            index = 27;
+        } else if (to_string(key[i]) == "\u00FC")
+        {
+            index = 28;
+        }else
+        {
+            index = key[i] - 'a';
+        }
+        if (!pCrawl->children[index])
+            return false;
+
+        pCrawl = pCrawl->children[index];
     }
-    current = current->right ;
-    return current->element;
 
-
-
+    return (pCrawl->isEndOfWord);
 }
-
-// label(n,T);
-// create();
-
-Node Tree::getRoot()
-{
-    return root;
-}
-
 Tree::~Tree()
 {}
