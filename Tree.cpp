@@ -17,22 +17,13 @@ TrieNode* Tree::getNode(void)
 
 void Tree::insert(struct TrieNode *root, string key)
 {
+    string alphabet = "abcdefghijklmnopqrstuvwxyzñü";
     struct TrieNode *pCrawl = root;
-
-    key = "ñ";
+    key = "agüimes";
     for (int i = 0; i < key.length(); i++)
     {
-        int index;
-        if (to_string(key[i]) == "\u00F1")
-        {
-            index = 27;
-        } else if (to_string(key[i]) == "\u00FC")
-        {
-            index = 28;
-        }else
-        {
-            index = key[i] - 'a';
-        }
+        int index = alphabet.find(key[i]);
+
         if (!pCrawl->children[index])
             pCrawl->children[index] = getNode();
 
@@ -45,21 +36,12 @@ void Tree::insert(struct TrieNode *root, string key)
 
 bool Tree::search(struct TrieNode *root, string key)
 {
+    string alphabet = "abcdefghijklmnopqrstuvwxyzñü";
     struct TrieNode *pCrawl = root;
 
     for (int i = 0; i < key.length(); i++)
     {
-        int index;
-        if (to_string(key[i]) == "\u00F1")
-        {
-            index = 27;
-        } else if (to_string(key[i]) == "\u00FC")
-        {
-            index = 28;
-        }else
-        {
-            index = key[i] - 'a';
-        }
+        int index = alphabet.find(key[i]);
         if (!pCrawl->children[index])
             return false;
 
